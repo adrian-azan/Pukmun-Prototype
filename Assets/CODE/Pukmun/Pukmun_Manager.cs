@@ -47,15 +47,7 @@ public class Pukmun_Manager : Entity
     {
         Debug.Log("Following");
         yield return new WaitForSecondsRealtime(.1f);
-         if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
-        {
-            _Controller.SetDirection(_Player);
-            _Controller.SetVelocity();
-
-          // Direct();
-        }
-        else
-            _Controller.Chill();
+       
 
         StartCoroutine(Follow());
         yield return null;
@@ -79,7 +71,15 @@ public class Pukmun_Manager : Entity
         base.Update();
 
         Debug.DrawLine(transform.position, _Player.transform.position,Color.red);
-          
+        if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
+        {
+            _Controller.SetDirection(_Player.transform.position);
+            _Controller.SetVelocity(.2f);
+
+          // Direct();
+        }
+        else
+            _Controller.Chill();
              
         //_Points.ForEach(point => Debug.DrawLine(transform.position, parentFlat + point));
 
