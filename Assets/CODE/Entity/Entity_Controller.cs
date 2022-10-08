@@ -81,7 +81,7 @@ public class Entity_Controller : MonoBehaviour
         if (dir == Vector3.zero)
             return;
 
-        var angle = Quaternion.RotateTowards(_Controller.transform.rotation,Quaternion.LookRotation(dir,Vector3.down),step);        
+        var angle = Quaternion.RotateTowards(_Controller.transform.rotation,Quaternion.LookRotation(dir,Vector3.up),step);        
         _Controller.MoveRotation(angle);
     }      
 
@@ -97,7 +97,7 @@ public class Entity_Controller : MonoBehaviour
     {                
         Vector3 directionToTarget = _Controller.transform.position - target;
         directionToTarget.y = 0;
-        float angle = Vector3.SignedAngle(transform.position, directionToTarget, Vector3.down);
+        float angle = Vector3.SignedAngle(transform.position, directionToTarget, Vector3.up);
         SetDirection(angle);
     }
 
