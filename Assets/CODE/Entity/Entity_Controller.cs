@@ -10,7 +10,7 @@ public class Entity_Controller : MonoBehaviour
     public float _Speed;
     public float _Gravity;
     public bool _Fly;
-    protected float _Direction;
+    public float _Direction;
     public Vector3 _Target;
     
     public void Disable()
@@ -76,13 +76,13 @@ public class Entity_Controller : MonoBehaviour
         _Velocity = velocity*_Speed;
     }    
 
-     public void Turn(Vector3 dir, float step = 10)
+     public void Turn(Vector3 dir, float step = 45)
     {   
         if (dir == Vector3.zero)
             return;
 
-        var angle = Quaternion.RotateTowards(_Controller.transform.rotation,Quaternion.LookRotation(dir,Vector3.up),step);        
-        _Controller.MoveRotation(Quaternion.Euler(new Vector3(0,_Direction,0)));
+        var angle = Quaternion.RotateTowards(_Controller.transform.rotation,Quaternion.LookRotation(dir,Vector3.down),step);        
+        _Controller.MoveRotation(angle);
     }      
 
     
@@ -90,26 +90,20 @@ public class Entity_Controller : MonoBehaviour
      public void SetDirection(float angle)
     {     
         _Direction = angle;    
-        Debug.Log($"{_Direction} degrees");
     }
 
-
-
-     public void SetDirection(Entity target)
-    {
-        Vector3 targetPosition = target.transform.position;
-        Vector3 directionToTarget = _Controller.transform.position - targetPosition;
-        float angle = Vector3.SignedAngle(Vector3.right, directionToTarget, Vector3.up) + 180;
-
-        SetDirection(angle);
-    }sadfsdaf
+        
     public void SetDirection(Vector3 target)
-    {        
-        Debug.Log($"{_Controller.transform.position} - {target} = {_Controller.transform.position - target}");
+    {                
         Vector3 directionToTarget = _Controller.transform.position - target;
         directionToTarget.y = 0;
-        float angle = Vector3.SignedAngle(Vector3.right, directionToTarget, Vector3.up) + 180;
+        float angle = Vector3.SignedAngle(transform.position, directionToTarget, Vector3.down);
         SetDirection(angle);
+    }
+
+    public void SetDirection(Entity target)
+    {        
+        SetDirection(target.transform.position);
     }
    
      public void Gravity(float scale = 1)

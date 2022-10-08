@@ -61,7 +61,7 @@ public class Player_Controller : Entity_Controller
 
         if (_Facing == Vector3.zero && _Vel != Vector3.zero)
         { 
-            SetDirection(_Vel + transform.position);
+            SetDirection(transform.position + _Vel);
             Turn(_Vel);
         }
         
@@ -79,8 +79,15 @@ public class Player_Controller : Entity_Controller
     public void OnLook(InputValue input)
     {
         Vector2 facing = input.Get<Vector2>();
-        _Facing = new Vector3(facing.x,0,facing.y);        
-        SetDirection(_Facing + transform.position);
+        
+        _Facing = new Vector3(facing.x,0,facing.y);
+
+        //Debug
+        facing = new Vector3(facing.x, 1, facing.y);
+        Debug.DrawLine(transform.position, facing*3, Color.green);
+
+        Debug.Log($"transform+Facing = {transform.position + _Facing*3}");
+        SetDirection(transform.position + _Facing*3);
         Turn(_Facing);
     }
 }

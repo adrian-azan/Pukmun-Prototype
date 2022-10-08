@@ -50,15 +50,14 @@ public class Pukmun_Manager : Entity
          if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
         {
             _Controller.SetDirection(_Player);
-            _Controller.Turn(_Player.transform.position);
             _Controller.SetVelocity();
 
-           Direct();
+          // Direct();
         }
         else
             _Controller.Chill();
 
-         StartCoroutine(Follow());
+        StartCoroutine(Follow());
         yield return null;
 
     }    
@@ -87,6 +86,8 @@ public class Pukmun_Manager : Entity
         parentFlat.y = 0;
         //_Points.ForEach(point => Debug.DrawLine(transform.position, parentFlat + point));
 
+
+        Debug.DrawRay(transform.position, _Controller._Controller.velocity*3, Color.yellow);
 
     }
 }
