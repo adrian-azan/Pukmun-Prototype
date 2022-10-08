@@ -46,7 +46,7 @@ public class Pukmun_Manager : Entity
     public IEnumerator Follow()
     {
         Debug.Log("Following");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(.1f);
          if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
         {
             _Controller.SetDirection(_Player);
@@ -79,11 +79,8 @@ public class Pukmun_Manager : Entity
         base.Update();
 
         Debug.DrawLine(transform.position, _Player.transform.position,Color.red);
-       
-        Debug.DrawRay(transform.position, _Controller._Velocity*_Controller._Speed, Color.magenta);
-
-        Vector3 parentFlat = transform.position;
-        parentFlat.y = 0;
+          
+             
         //_Points.ForEach(point => Debug.DrawLine(transform.position, parentFlat + point));
 
 
