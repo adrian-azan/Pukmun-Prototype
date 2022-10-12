@@ -6,22 +6,12 @@ using System.Collections;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField]
-    public int ID;
-
     public Entity_Collider _Collider;
     public Entity_Skin _Skin;
     public Entity_Controller _Controller;
     public Entity_Animator _Animator;
 
-
     public float _Health;
-    public string _Name;
-    public Texture _Icon;
-
-    public GameObject Drop;
-
-   
 
 
     public void Disable()
@@ -49,33 +39,7 @@ public class Entity : MonoBehaviour
         _Animator = GetComponent<Entity_Animator>();
         _Health = _Health == 0 ? Mathf.Infinity : _Health;
     }
-
-    public void Update()
-    {
-        
-    }
-
-    public IEnumerator TakeDamage(float damage)
-    {
-        if (damage < 0) yield return null;
-        
-        _Health -= damage;
-
-        if (_Health <= 0)
-        {
-            _Collider?.Disable();
-            _Controller?.Disable();
-            _Animator?.Disable();
-            var drop = Instantiate(Drop,transform.position, new Quaternion());
-
-            transform.SetParent(drop.transform);                      
-        }
-        else
-        {
-            _Animator?.Play("Damaged");
-        }
-    }
-
+          
     public void SnapTo(Vector3 newPosition)
     {
         _Controller?.Disable();
@@ -89,5 +53,4 @@ public class Entity : MonoBehaviour
         transform.RotateAround(point, axis, angle);
         _Controller?.Enable();       
     }
-
 }

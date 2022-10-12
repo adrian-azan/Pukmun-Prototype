@@ -17,7 +17,7 @@ public class Pukmun_Unit : Entity
     {
         if (Tools.DistanceToXZ(transform.position,_Target) < .5)
         {
-            _Controller.Chill();
+            _Controller.SetVelocity(0);
         }
     }
 

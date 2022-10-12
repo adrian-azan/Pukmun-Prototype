@@ -85,7 +85,6 @@ public class Player_Controller : Entity_Controller
         //Debug
         facing = new Vector3(facing.x, 1, facing.y);
         Debug.DrawLine(transform.position, facing*3, Color.green);
-        Debug.Log($"transform+Facing = {transform.position + _Facing*3}");
 
 
         SetDirection(transform.position + _Facing*3);

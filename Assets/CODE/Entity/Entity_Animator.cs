@@ -13,21 +13,13 @@ public class Entity_Animator : MonoBehaviour
     }
 
     public void Disable()
-    {
-        if (_Animator is null)
-            _Animator = GetComponent<Animator>();
-
-       // _Animator.StopPlayback();
+    {      
        _Animator.enabled = false;
     }
 
     public void Enable()
-    {
-        if (_Animator is null)
-            _Animator = GetComponent<Animator>();
-
+    {        
         _Animator.enabled = true;
-        //_Animator.StartPlayback();
     }
 
     public void Play(string stateName, int layer = 0)
@@ -43,8 +35,7 @@ public class Entity_Animator : MonoBehaviour
 
     public bool IsState(string stateName, int layer = 0)
     {
-        return _Animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
-        
+        return _Animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName);        
     }
 
     public void Speed(int speed = 1)

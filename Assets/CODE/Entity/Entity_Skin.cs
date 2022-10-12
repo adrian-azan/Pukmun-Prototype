@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +6,10 @@ public class Entity_Skin : MonoBehaviour
 {
     private List<Renderer> _Render;
 
+    private void Awake()
+    {
+        _Render = GetComponentsInChildren<MeshRenderer>().ToList<Renderer>();           
+    }
 
     public void Disable()
     {
@@ -22,19 +25,8 @@ public class Entity_Skin : MonoBehaviour
         _Render.ForEach(x => x.enabled = true);
     }
 
-    private void Awake()
-    {
-        _Render = GetComponentsInChildren<MeshRenderer>().ToList<Renderer>();           
-    }
-
     public void SetColor(Color color)
     {
         _Render.ForEach(r => r.material.color = color);
-    }
-   
-    void Update()
-    {
-       
-    }
-
+    }   
 }
