@@ -2,14 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
-
 public class Entity_Collider : MonoBehaviour
 {   
     public List<BoxCollider> BoxCollider;
-    public Entity_Animator _Animator;
-    private Vector3 center; 
    
+    public void Awake()
+    {        
+        BoxCollider = GetComponentsInChildren<BoxCollider>().ToList<BoxCollider>();
+        BoxCollider.Add(GetComponent<BoxCollider>());
+    }
+
     public void Disable()
     {
         if (BoxCollider == null)
@@ -32,11 +34,5 @@ public class Entity_Collider : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log($"{this} entered {other}");
-    }
-
-    public void Awake()
-    {        
-        BoxCollider = GetComponentsInChildren<BoxCollider>().ToList<BoxCollider>();
-        _Animator = GetComponentInParent<Entity_Animator>();
-    }
+    }   
 }

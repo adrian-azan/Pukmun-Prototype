@@ -46,19 +46,10 @@ public class Pukmun_Manager : Entity
     public IEnumerator Follow()
     {
         Debug.Log("Following");
-        yield return new WaitForSecondsRealtime(1);
-         if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
-        {
-            _Controller.SetDirection(_Player);
-            _Controller.Turn(_Player.transform.position);
-            _Controller.SetVelocity();
+        yield return new WaitForSecondsRealtime(.1f);
+       
 
-           Direct();
-        }
-        else
-            _Controller.Chill();
-
-         StartCoroutine(Follow());
+        StartCoroutine(Follow());
         yield return null;
 
     }    
@@ -77,16 +68,18 @@ public class Pukmun_Manager : Entity
     // Update is called once per frame
     public void FixedUpdate()
     {
-        base.Update();
 
-        Debug.DrawLine(transform.position, _Player.transform.position,Color.red);
-       
-        Debug.DrawRay(transform.position, _Controller._Velocity*_Controller._Speed, Color.magenta);
+     //   Debug.DrawLine(transform.position, _Player.transform.position,Color.red);
+        if (Tools.DistanceToXZ(_Player.transform, transform) > 5)
+        {
+            _Controller.SetDirection(_Player);
+            _Controller.SetVelocity(.2f);
 
-        Vector3 parentFlat = transform.position;
-        parentFlat.y = 0;
+          // Direct();
+        }
+        else
+            _Controller.SetVelocity(0);
+             
         //_Points.ForEach(point => Debug.DrawLine(transform.position, parentFlat + point));
-
-
     }
 }

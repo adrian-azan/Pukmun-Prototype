@@ -12,21 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8f1b81732fba14a88cdc497de9edb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
   _Collider: {fileID: 0}
   _Skin: {fileID: 0}
   _Controller: {fileID: 0}
   _Animator: {fileID: 0}
   _Health: 0
-  _Name: 
-  _Icon: {fileID: 0}
-  Drop: {fileID: 0}
   _LastDirection: {x: 0, y: 0, z: 0}
   _Light: {fileID: 0}
   _Facing: {x: 0, y: 0, z: 0}
-  _PM: {fileID: 0}
-  lastUsed: {fileID: 0}
-  index: 0
 --- !u!136 &5092301805997811195
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCollider: []
-  _Animator: {fileID: 0}
 --- !u!114 &4474276706563730542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,11 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f99be1e883e08c4982ebe1722bc30cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Controller: {fileID: 0}
-  _Velocity: {x: 0, y: 0, z: 0}
-  _Speed: 20
-  _Gravity: 0
-  _Fly: 0
+  _Speed: 1
   _Animator: {fileID: 0}
   _Facing: {x: 0, y: 0, z: 0}
   _Pad: {fileID: 0}
