@@ -17,4 +17,6 @@ public class Player : Entity
     {       
         _Controller = GetComponentInChildren<Player_Controller>(); 
     } 
+
+    
 }

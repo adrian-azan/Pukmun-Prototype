@@ -10,6 +10,8 @@ public class Pukmun_Manager : Entity
 
     public Player _Player;
 
+    public GameObject PukmanPrefab;
+
 
     public void AddPukmun(Pukmun_Unit pukmun)
     {
@@ -39,20 +41,14 @@ public class Pukmun_Manager : Entity
         for (int i = 0; i < 100; i++)
         {
             _Points.Add(new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)));
-        }         
-        StartCoroutine(Follow());
+
+            Instantiate(PukmanPrefab,new Vector3(Random.Range(-20f, 20f), 1, Random.Range(-20f, 20f)),new Quaternion());
+        }       
+        
+        
+
     }
-
-    public IEnumerator Follow()
-    {
-        Debug.Log("Following");
-        yield return new WaitForSecondsRealtime(.1f);
        
-
-        StartCoroutine(Follow());
-        yield return null;
-
-    }    
 
     public void Direct()
     {
@@ -75,7 +71,7 @@ public class Pukmun_Manager : Entity
             _Controller.SetDirection(_Player);
             _Controller.SetVelocity(.2f);
 
-          // Direct();
+            Direct();
         }
         else
             _Controller.SetVelocity(0);

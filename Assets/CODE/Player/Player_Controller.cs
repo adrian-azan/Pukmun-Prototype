@@ -30,8 +30,7 @@ public class Player_Controller : Entity_Controller
     {
         base.FixedUpdate();   
 
-        Debug.DrawRay(transform.position, _Facing*-1,Color.red);
-    }        
+   }        
 
     public void OnDash(InputValue input)
     {       

@@ -10,8 +10,11 @@ public class Entity_Controller : MonoBehaviour
 
     [SerializeField]
     private float _Speed;
-
-    private float _GravityScale;    
+    
+    [SerializeField]
+    private float _GravityScale; 
+    
+    [SerializeField]
     private bool _Fly;
     
     protected void Awake()
@@ -108,7 +111,7 @@ public class Entity_Controller : MonoBehaviour
         if (_Fly)
             return;   
 
-        _Velocity.y = (Physics.gravity.y * _GravityScale);        
+        _Velocity.y = Physics.gravity.y * _GravityScale;        
      }   
 
 

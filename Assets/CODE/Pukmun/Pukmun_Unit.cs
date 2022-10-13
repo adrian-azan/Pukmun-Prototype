@@ -29,7 +29,7 @@ public class Pukmun_Unit : Entity
     }
 
 
-    public void OnControllerColliderHit(ControllerColliderHit hit)
+    public void OnCollisionEnter(Collision hit)
     {
         var source = hit.gameObject;
 
