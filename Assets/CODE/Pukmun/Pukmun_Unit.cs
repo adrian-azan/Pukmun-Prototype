@@ -34,18 +34,16 @@ public class Pukmun_Unit : Entity
         var source = hit.gameObject;
 
         Debug.Log(source);
-        if (source.GetComponent<Player>())
+        if (source.GetComponent<Player>() || source.GetComponentInParent<Whistle>() )
         {
             var manager = FindObjectOfType<Pukmun_Manager>();
             manager.AddPukmun(this);
-            Debug.Log($"{this} touched Player");
-        }
-
-        else if (source.GetComponentInParent<Whistle>())
-        {
-            Debug.Log("Whistle Hit");
-        }
-
-        
+        }                  
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        var manager = FindObjectOfType<Pukmun_Manager>();
+        manager.AddPukmun(this);
+    }  
 }
