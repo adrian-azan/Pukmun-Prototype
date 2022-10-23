@@ -4,12 +4,12 @@ using System.Linq;
 
 public class Entity_Collider : MonoBehaviour
 {   
-    public List<BoxCollider> BoxCollider;
+    public List<Collider> BoxCollider;
    
     public void Awake()
     {        
-        BoxCollider = GetComponentsInChildren<BoxCollider>().ToList<BoxCollider>();
-        BoxCollider.Add(GetComponent<BoxCollider>());
+        BoxCollider = GetComponentsInChildren<Collider>().ToList<Collider>();
+       
     }
 
     public void Disable()
@@ -25,6 +25,21 @@ public class Entity_Collider : MonoBehaviour
             return;
         BoxCollider.ForEach(x => x.enabled = true);
     }
+
+    public void IgnoreCollision(Entity_Collider collider, bool ignore = true)
+    {
+
+        Debug.Log("Ignoring");
+        foreach (var box in BoxCollider)
+        {
+            foreach (var otherBox in collider.BoxCollider)
+            {
+                Physics.IgnoreCollision(box,otherBox, ignore);
+            }
+        }
+       // BoxCollider.ForEach(box => collider.BoxCollider.ForEach( otherBox => Physics.IgnoreCollision(box,otherBox,ignore)));
+    }
+
 
     public void Trigger(bool isTrigger)
     {

@@ -12,10 +12,16 @@ public class Pukmun_Unit : Entity
     {
     }
 
+    new void Awake()
+    {
+        base.Awake();
+        Physics.IgnoreLayerCollision(10,10);
+    }
+
     // Update is called once per frame
     new void Update()
     {
-        if (Tools.DistanceToXZ(transform.position,_Target) < .5)
+        if (_Target != new Vector3(-1,-1,-1) && Tools.DistanceToXZ(transform.position,_Target) < .5)
         {
             _Controller.SetVelocity(0);
         }

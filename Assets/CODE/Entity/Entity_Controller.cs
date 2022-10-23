@@ -28,7 +28,7 @@ public class Entity_Controller : MonoBehaviour
     {
         Gravity();          
         if (_Controller?.isKinematic ==false)
-            _Controller.velocity = (_Velocity / Time.fixedDeltaTime);
+            _Controller.velocity = (_Velocity * Time.fixedDeltaTime)*100;
     }
 
 
@@ -108,10 +108,10 @@ public class Entity_Controller : MonoBehaviour
      */
      public void Gravity()
      {        
-        if (_Fly)
+        if (_Fly || _Velocity.y < Physics.gravity.y)
             return;   
 
-        _Velocity.y = Physics.gravity.y * _GravityScale;        
+        _Velocity.y += Physics.gravity.y * Time.fixedDeltaTime;        
      }   
 
 

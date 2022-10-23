@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class Whistle : MonoBehaviour
+public class Whistle : Entity
 {
 
-    public Entity_Animator _Animator;
     public PlayerInput _Pad;
 
 
