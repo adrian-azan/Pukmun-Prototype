@@ -11,16 +11,19 @@ public class Player_Controller : Entity_Controller
     public PlayerInput _Pad;
     private Player _Player;
     private Pukmun_Manager PM;
+    public Camera _Camera;
     
     new void Awake()
     {
         base.Awake();
         _Animator = GetComponentInParent<Animator>();  
         PM = FindObjectOfType<Pukmun_Manager>();
+        _Camera = FindObjectOfType<Camera>();
 
         _Pad = GetComponent<PlayerInput>();
         _Pad.SwitchCurrentActionMap("Player");
         _Pad.SwitchCurrentControlScheme("GamePad", Gamepad.current);
+        
 
         Debug.Log(_Pad);
         
@@ -67,6 +70,8 @@ public class Player_Controller : Entity_Controller
     public void OnMove(InputValue input)
     {
         _Vel = new Vector3(input.Get<Vector2>().x, 0, input.Get<Vector2>().y); 
+        _Vel = _Camera._Orientation.forward * _Vel.z + _Camera._Orientation.right * _Vel.x;
+        _Vel = new Vector3(_Vel.x,0,_Vel.z);
 
         if (_Facing == Vector3.zero && _Vel != Vector3.zero)
         { 

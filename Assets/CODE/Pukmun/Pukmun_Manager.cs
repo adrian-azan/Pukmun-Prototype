@@ -55,7 +55,7 @@ public class Pukmun_Manager : Entity
         }       
          
 
-         for (int i = 0; i < 100; i++)
+         for (int i = 0; i < 5; i++)
         {
 
            Instantiate(PukmanPrefab,new Vector3(Random.Range(-20f, 20f), 1, Random.Range(-20f, 20f)),new Quaternion());
