@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2174149197901646777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338036603495483166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb6ac53d149cae4dad0770adbdfc385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Collider: {fileID: 0}
+  _Skin: {fileID: 0}
+  _Controller: {fileID: 0}
+  _Animator: {fileID: 0}
+  _Health: 0
+  _Points: []
+  _Pukmuns: []
+  _Player: {fileID: 0}
+  PukmanPrefab: {fileID: 0}
 --- !u!1001 &7879413807539866825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611593817436916911, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: _Speed
-      value: 0.8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2611593817436916911, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: m_Enabled
@@ -75,5 +96,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8695415827546488911, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b31706747132bfa4eaebf68e824d9769, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e288147a419206c4fab2689da8f281de, type: 3}
+--- !u!1 &3338036603495483166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4830774183575243735, guid: e288147a419206c4fab2689da8f281de, type: 3}
+  m_PrefabInstance: {fileID: 7879413807539866825}
+  m_PrefabAsset: {fileID: 0}

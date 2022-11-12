@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 8151823776513625083}
   - component: {fileID: -900107829301484169}
   - component: {fileID: 7902362518222687463}
+  - component: {fileID: 7414011080896248765}
   m_Layer: 0
   m_Name: Mechanical_Entity
   m_TagString: Untagged
@@ -127,15 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cd1b1047daf3e43bda247e9d1322a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
   _Collider: {fileID: 0}
   _Skin: {fileID: 0}
   _Controller: {fileID: 0}
   _Animator: {fileID: 0}
   _Health: 0
-  _Name: 
-  _Icon: {fileID: 0}
-  Drop: {fileID: 6708403543699718609, guid: e6dbe2961b944b045842f25ff27acaf7, type: 3}
 --- !u!114 &7902362518222687463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b4e578c53b1dc41850cceb14525b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7414011080896248765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830774183575243735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df04c06c4e6609459d97f99a662d8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoxCollider:
+  - {fileID: 0}
 --- !u!1 &5541996510082030425
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +250,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5901229218084128675}
   - component: {fileID: 4721280775987249543}
-  - component: {fileID: 5295802666689445443}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -275,21 +285,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5295802666689445443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021034446607509853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df04c06c4e6609459d97f99a662d8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoxCollider:
-  - {fileID: 0}
-  _Animator: {fileID: 0}
 --- !u!1 &6764118689192616202
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,9 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf3894a315d062469490caba8f61448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Controller: {fileID: 0}
-  _Velocity: {x: 0, y: 0, z: 0}
   _Speed: 1
-  _Gravity: 0
+  _GravityScale: 0
   _Fly: 0
-  _Target: {x: 0, y: 0, z: 0}

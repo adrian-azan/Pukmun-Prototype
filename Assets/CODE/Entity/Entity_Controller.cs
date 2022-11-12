@@ -6,12 +6,15 @@ public class Entity_Controller : MonoBehaviour
 {
     private Rigidbody _Controller;
     private Vector3 _Velocity;
-    private float _Direction;
+    protected float _Direction;
 
     [SerializeField]
     private float _Speed;
-
-    private float _GravityScale;    
+    
+    [SerializeField]
+    private float _GravityScale; 
+    
+    [SerializeField]
     private bool _Fly;
     
     protected void Awake()
@@ -25,7 +28,7 @@ public class Entity_Controller : MonoBehaviour
     {
         Gravity();          
         if (_Controller?.isKinematic ==false)
-            _Controller.velocity = (_Velocity / Time.fixedDeltaTime);
+            _Controller.velocity = (_Velocity * Time.fixedDeltaTime)*100;
     }
 
 
@@ -105,10 +108,10 @@ public class Entity_Controller : MonoBehaviour
      */
      public void Gravity()
      {        
-        if (_Fly)
+        if (_Fly || _Velocity.y < Physics.gravity.y)
             return;   
 
-        _Velocity.y = (Physics.gravity.y * _GravityScale);        
+        _Velocity.y += Physics.gravity.y * Time.fixedDeltaTime;        
      }   
 
 
