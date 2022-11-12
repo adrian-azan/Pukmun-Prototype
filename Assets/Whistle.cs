@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class Whistle : MonoBehaviour
+public class Whistle : Entity
 {
 
-    public Entity_Animator _Animator;
     public PlayerInput _Pad;
 
 
@@ -26,9 +25,9 @@ public class Whistle : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("WHISTLE");
+        Debug.Log("WHISTLE HIT");
     }
 
     public void OnWhistle(InputValue input)

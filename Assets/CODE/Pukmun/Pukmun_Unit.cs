@@ -12,10 +12,16 @@ public class Pukmun_Unit : Entity
     {
     }
 
+    new void Awake()
+    {
+        base.Awake();
+        Physics.IgnoreLayerCollision(10,10);
+    }
+
     // Update is called once per frame
     new void Update()
     {
-        if (Tools.DistanceToXZ(transform.position,_Target) < .5)
+        if (_Target != new Vector3(-1,-1,-1) && Tools.DistanceToXZ(transform.position,_Target) < .5)
         {
             _Controller.SetVelocity(0);
         }
@@ -29,23 +35,21 @@ public class Pukmun_Unit : Entity
     }
 
 
-    public void OnControllerColliderHit(ControllerColliderHit hit)
+    public void OnCollisionEnter(Collision hit)
     {
         var source = hit.gameObject;
 
         Debug.Log(source);
-        if (source.GetComponent<Player>())
+        if (source.GetComponent<Player>() || source.GetComponentInParent<Whistle>() )
         {
             var manager = FindObjectOfType<Pukmun_Manager>();
             manager.AddPukmun(this);
-            Debug.Log($"{this} touched Player");
-        }
-
-        else if (source.GetComponentInParent<Whistle>())
-        {
-            Debug.Log("Whistle Hit");
-        }
-
-        
+        }                  
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        var manager = FindObjectOfType<Pukmun_Manager>();
+        manager.AddPukmun(this);
+    }  
 }

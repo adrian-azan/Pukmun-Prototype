@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f3505bd6942e7449cc3de1f068111c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
   _Collider: {fileID: 0}
   _Skin: {fileID: 0}
   _Controller: {fileID: 0}
   _Animator: {fileID: 0}
   _Health: 0
-  _Name: 
-  _Icon: {fileID: 0}
-  Drop: {fileID: 0}
   _Target: {x: 0, y: 0, z: 0}
 --- !u!136 &5335579202714150028
 CapsuleCollider:
@@ -43,9 +39,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1091708100515313404, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611593817436916911, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: _Fly
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2611593817436916911, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: _Speed
-      value: 0.1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2611593817436916911, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: _Gravity
@@ -114,6 +118,22 @@ PrefabInstance:
     - target: {fileID: 4830774183575243735, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: m_Name
       value: Pukmun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830774183575243735, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541996510082030425, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021034446607509853, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6764118689192616202, guid: e288147a419206c4fab2689da8f281de, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8151823776513625083, guid: e288147a419206c4fab2689da8f281de, type: 3}
       propertyPath: m_Controller
@@ -196,9 +216,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: e7bde816e1da7af4f88e60012051d4d5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7bde816e1da7af4f88e60012051d4d5, type: 3}
       propertyPath: m_Name
       value: pikmin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7bde816e1da7af4f88e60012051d4d5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914173764048766335, guid: e7bde816e1da7af4f88e60012051d4d5, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7bde816e1da7af4f88e60012051d4d5, type: 3}

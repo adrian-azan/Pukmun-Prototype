@@ -15,6 +15,9 @@ public class Player : Entity
 
     public new void Awake()
     {       
+        base.Awake();
         _Controller = GetComponentInChildren<Player_Controller>(); 
     } 
+
+    
 }

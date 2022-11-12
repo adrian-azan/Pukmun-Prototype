@@ -10,12 +10,14 @@ public class Player_Controller : Entity_Controller
     private Vector3 _Vel;
     public PlayerInput _Pad;
     private Player _Player;
+    private Pukmun_Manager PM;
     
     new void Awake()
     {
         base.Awake();
         _Animator = GetComponentInParent<Animator>();  
-        _Player = GetComponentInParent<Player>();
+        PM = FindObjectOfType<Pukmun_Manager>();
+
         _Pad = GetComponent<PlayerInput>();
         _Pad.SwitchCurrentActionMap("Player");
         _Pad.SwitchCurrentControlScheme("GamePad", Gamepad.current);
@@ -30,20 +32,13 @@ public class Player_Controller : Entity_Controller
     {
         base.FixedUpdate();   
 
-        Debug.DrawRay(transform.position, _Facing*-1,Color.red);
-    }        
+   }        
 
     public void OnDash(InputValue input)
     {       
         _Animator.Play("Dash");
     }
 
-    
-
-
-    public void OnTEST(InputValue input)
-    {
-    }
 
     public void OnLockDown(InputValue input)
     { 
@@ -52,8 +47,22 @@ public class Player_Controller : Entity_Controller
         else
             _Pad.SwitchCurrentActionMap("Player");
     }
+     
+    public void OnThrow(InputValue input)
+    {
+        Pukmun_Unit selected = PM.PopPukmun();
 
-  
+        if (selected == null)
+            return;
+
+        selected._Target = new Vector3(-1,-1,-1);
+        //selected.SnapTo(transform.position+Vector3.up*2);
+        
+        selected._Controller.SetDirection(_Direction);
+
+        selected._Controller.SetVelocity(Vector3.up);
+        selected._Controller.SetVelocity();
+   }
 
     public void OnMove(InputValue input)
     {
@@ -80,12 +89,6 @@ public class Player_Controller : Entity_Controller
     {
         Vector2 facing = input.Get<Vector2>();        
         _Facing = new Vector3(facing.x,0,facing.y);
-
-
-        //Debug
-        facing = new Vector3(facing.x, 1, facing.y);
-        Debug.DrawLine(transform.position, facing*3, Color.green);
-
 
         SetDirection(transform.position + _Facing*3);
         Turn(_Facing);

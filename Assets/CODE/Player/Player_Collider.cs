@@ -32,10 +32,10 @@ public class Player_Collider : Entity_Collider
 
         if (source.GetComponentInParent<Pukmun_Unit>())
         {
-            _PM.AddPukmun(source.GetComponent<Pukmun_Unit>());
-        }
-
-        
+            //_PM.AddPukmun(source.GetComponent<Pukmun_Unit>());
+        }        
     }
+
+   
    
 }
