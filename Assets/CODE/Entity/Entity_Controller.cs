@@ -6,7 +6,7 @@ public class Entity_Controller : MonoBehaviour
 {
     private Rigidbody _Controller;
     private Vector3 _Velocity;
-    private float _Direction;
+    protected float _Direction;
 
     [SerializeField]
     private float _Speed;

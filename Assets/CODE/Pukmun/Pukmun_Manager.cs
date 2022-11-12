@@ -21,6 +21,9 @@ public class Pukmun_Manager : Entity
         _Pukmuns.RemoveAt(0);
          _Player._Collider.IgnoreCollision(sacrafice._Collider,false);
 
+        sacrafice.SnapTo(_Player.transform.position + Vector3.forward);
+        sacrafice.RotateAround(_Player.transform.position, Vector3.up, 180);
+
         return sacrafice;        
     }
      

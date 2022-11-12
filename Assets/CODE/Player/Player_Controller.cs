@@ -57,10 +57,12 @@ public class Player_Controller : Entity_Controller
 
         selected._Target = new Vector3(-1,-1,-1);
         //selected.SnapTo(transform.position+Vector3.up*2);
-        selected._Controller.SetVelocity(Vector3.up);
+        
+        selected._Controller.SetDirection(_Direction);
 
-        Debug.Log("THROW");
-    }
+        selected._Controller.SetVelocity(Vector3.up);
+        selected._Controller.SetVelocity();
+   }
 
     public void OnMove(InputValue input)
     {
